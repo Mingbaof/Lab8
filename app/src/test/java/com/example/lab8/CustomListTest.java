@@ -93,6 +93,6 @@ public class CustomListTest {
         Assert.assertTrue(list.hasCity(city3));
     }
 
-    
+
 
 }
