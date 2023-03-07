@@ -3,6 +3,7 @@ package com.example.lab8;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
@@ -66,10 +67,32 @@ public class CustomListTest {
     }
 
 
+    /**
+     * Tests if CustomList.deleteCity() method correctly removes a city from the CustomList
+     * and updates the count of cities in the list.
+     */
+    @Test
+    public void testDeleteCity() {
+        CustomList list = new CustomList(null, new ArrayList<>());
 
+        City city1 = new City("Edmonton", "AB");
+        City city2 = new City("Vancouver", "BC");
+        City city3 = new City("Toronto", "ON");
 
+        list.addCity(city1);
+        list.addCity(city2);
+        list.addCity(city3);
 
+        Assert.assertEquals(3, list.getCount());
 
+        list.deleteCity(city1);
 
+        Assert.assertEquals(2, list.getCount());
+        Assert.assertFalse(list.hasCity(city1));
+        Assert.assertTrue(list.hasCity(city2));
+        Assert.assertTrue(list.hasCity(city3));
+    }
+
+    
 
 }
