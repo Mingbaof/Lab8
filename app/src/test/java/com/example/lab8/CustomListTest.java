@@ -111,6 +111,4 @@ public class CustomListTest {
         Assert.assertEquals(6, list.countCities());
     }
 
-
-
 }
